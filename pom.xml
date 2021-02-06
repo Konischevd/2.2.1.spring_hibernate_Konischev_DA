@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.javamentor</groupId>
+    <artifactId>spring-hibernate</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>5.0.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.27.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.5</version>
+        </dependency>
+
+
+
+
+        <!-- Это зависимость для добавления:
+            К счастью, эти Java EE APIs, которые были предоставлены в JDK 6/7/8, все еще находятся в JDK,
+            но они просто не находятся в пути класса по умолчанию. Дополнительные Java EE APIs поставляются в следующих модулях:
+
+            java.activation
+            java.corba
+            java.transaction
+            java.xml.bind  << This one contains the JAXB APIs
+            java.xml.ws
+            java.xml.ws.annotation
+
+
+            Правильное долгосрочное решение: (JDK 9 и далее)
+
+            Все перечисленные выше модули Java EE API помечены как @Deprecated(forRemoval=true),
+            поскольку они запланированы к удалению в Java 11 .
+            Таким образом, подход add-module больше не будет работать в Java 11 из коробки.
+
+            То, что вам нужно будет сделать в Java 11 и далее,
+            - это включить свою собственную копию Java EE APIs в путь класса или путь модуля.
+            Например, вы можете добавить JAX-B APIs как maven зависимость, как это:
+         -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.11</version>
+        </dependency>
+
+    </dependencies>
+
+
+</project>
